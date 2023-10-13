@@ -686,7 +686,8 @@ class connection : public base_connection,
       return;
     }
 
-    if (req_.get_content_type() == content_type::websocket) {
+    if (req_.get_content_type() == content_type::websocket &&
+        !req_.set_websocket_state()) {
       req_.set_websocket_state(true);
       std::string close_reason = "server close\n";
       std::string close_msg = ws_.format_close_payload(
