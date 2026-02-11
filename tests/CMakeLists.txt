@@ -96,6 +96,10 @@ add_executable(test_time_util
         )
 add_test(NAME test_time_util COMMAND test_time_util)
 
+add_executable(test_rlimiter test_token_bucket_rlimiter.cpp)
+
+add_test(NAME test_rlimiter COMMAND test_rlimiter)
+
 add_executable(test_metric
         test_metric.cpp
         )
